@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Bell, FileCheck, FileText, ClipboardList, LogOut, User } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from '../components/Button';
-
+import Logo from '../../dist/assets/images/logos/logo-vitall-recrutement.png'
 interface ApplicationStep {
   id: number;
   title: string;
@@ -56,10 +56,8 @@ export function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <FileCheck className="h-8 w-8 text-red-600" />
-              <h1 className="ml-2 text-2xl font-bold text-gray-900">
-                Espace Candidat
-              </h1>
+              <img src={Logo} className="h-16 w-auto text-red-600" />
+
             </div>
             <div className="flex items-center space-x-4">
               <Bell className="h-6 w-6 text-gray-500 cursor-pointer hover:text-gray-700" />
@@ -76,12 +74,16 @@ export function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Profile Card */}
           <div className="bg-white rounded-lg shadow p-6">
+            <h1 className="ml-2 mb-4 text-2xl font-bold text-gray-900">
+              Espace Candidat
+            </h1>
             <div className="flex items-center space-x-4 mb-6">
               <div className="bg-gray-100 p-3 rounded-full">
                 <User className="h-8 w-8 text-gray-600" />
               </div>
               <div>
                 <h2 className="text-xl font-semibold">
+
                   {user?.firstName} {user?.lastName}
                 </h2>
                 <p className="text-gray-600">{user?.email}</p>
@@ -105,16 +107,14 @@ export function Dashboard() {
                     <div className="absolute left-5 top-8 h-full w-0.5 bg-gray-200" />
                   )}
                   <div className="flex items-start space-x-4">
-                    <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${
-                      step.status === 'completed' ? 'bg-green-100' :
+                    <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${step.status === 'completed' ? 'bg-green-100' :
                       step.status === 'current' ? 'bg-blue-100' :
-                      'bg-gray-100'
-                    }`}>
-                      <FileText className={`h-5 w-5 ${
-                        step.status === 'completed' ? 'text-green-600' :
+                        'bg-gray-100'
+                      }`}>
+                      <FileText className={`h-5 w-5 ${step.status === 'completed' ? 'text-green-600' :
                         step.status === 'current' ? 'text-blue-600' :
-                        'text-gray-400'
-                      }`} />
+                          'text-gray-400'
+                        }`} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
