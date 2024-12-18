@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Bell, FileCheck, FileText, ClipboardList, LogOut, User } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from '../components/Button';
-import Logo from '../../dist/assets/images/logos/logo-vitall-recrutement.png'
+import Logo from '../public/images/logos/logo-vitall-recrutement.png'
 interface ApplicationStep {
   id: number;
   title: string;
